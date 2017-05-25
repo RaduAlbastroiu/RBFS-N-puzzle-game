@@ -10,6 +10,7 @@ from datetime import datetime
 import argparse
 
 class Solver:
+    # set the solver
     def __init__(self, n):
         self.N = n
         self.L = n * n
@@ -247,7 +248,6 @@ def main():
         nrMoves = 0
         while state:
             (tiles, parent, h) = state
-            solution.insert(0, tiles)
             nrMoves = nrMoves + 1
             state = parent
 
@@ -298,8 +298,8 @@ def main():
     # printing raport
     f.write("\n Number of tests: " + str(total) + "\n\n")
 
-    f.write(" Solve rate for 2X2 = " + str(succes2) + "/" + str(total) + "\n")
-    f.write(" Solve rate for 3X3 = " + str(succes3) + "/" + str(total)+ "\n\n")
+    f.write(" Solve rate for 2X2 = " + str(succes2) + "/" + str(total) + " : " + str(float(float(succes2)/float(total)) * 100) + "%\n")
+    f.write(" Solve rate for 3X3 = " + str(succes3) + "/" + str(total) + " : " + str(float(float(succes3)/float(total)) * 100) + "%\n\n")
 
     f.write(" Average number of steps for first solution 2X2: " + str(nrSteps2FirstSolution / succes2) + "\n")
     f.write(" Miniumum number of steps for first solution 2X2: " + str(minimumNrSteps2) + "\n")
